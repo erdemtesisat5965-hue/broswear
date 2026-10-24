@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrosWear — Kış Koleksiyonu & Streetwear</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #0b0b0b;
+            color: #ffffff;
+            line-height: 1.6;
+            padding-bottom: 75px;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #000000;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1f1f1f;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-brand {
+            font-size: 1.3rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .logo-brand span {
+            color: #d4af37;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cart-icon-btn {
+            background: #141414;
+            border: 1px solid #333;
+            color: #d4af37;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            width: 26px;
+            height: 2px;
+            background-color: #d4af37;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        .nav-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.92);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            backdrop-filter: blur(8px);
+        }
+
+        .nav-overlay.active {
+            display: flex;
+        }
+
+        .nav-menu-card {
+            background-color: #141414;
+            border: 1px solid #262626;
+            width: 85%;
+            max-width: 360px;
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 12px; right: 18px;
+            font-size: 1.8rem;
+            color: #888;
+            cursor: pointer;
+        }
+
+        .nav-menu-card ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .nav-menu-card li {
+            padding: 14px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        .nav-menu-card li:last-child {
+            border-bottom: none;
+        }
+
+        .nav-menu-card a {
+            text-decoration: none;
+            color: #e0e0e0;
+            font-weight: 700;
+            font-size: 1rem;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .nav-menu-card a:hover, .nav-menu-card a.active-page {
+            color: #d4af37;
+        }
+
+        .page-view {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .page-view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero {
+            position: relative;
+            min-height: 75vh;
+            background: url('https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px 20px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(11,11,11,0.95) 90%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 500px;
+        }
+
+        .hero h1 {
+            
